@@ -1,0 +1,36 @@
+<h2>my files - ({{books.length}})</h2>
+{{#if books}}
+    <div class="table-responsive-sm">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>File</th>
+                    <th>Description</th>
+                    <th class="d-print-none">
+                        <a class="btn btn-sm btn-success" href="/addbookform">Upload</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each books}}
+                    <tr>
+                        <td>{{this.title}}</td>
+                        <td colspan="2">{{this.author}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+{{/if}}
+{{#unless books}}
+    <div class="row mt-5">
+        <div class="col">
+            Δεν υπάρχει κανένα αρχείο
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <a class="btn btn-sm btn-success" href="/addbookform">Upload</a>
+        </div>
+    </div>
+{{/unless}}
